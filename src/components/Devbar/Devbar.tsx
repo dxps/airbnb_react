@@ -359,7 +359,7 @@ const Devbar = () => {
   };
 
   return (
-    <div className='bg-card relative h-screen w-[700px] flex-col items-center overflow-auto'>
+    <div className='bg-card relative h-screen w-[600px] flex-col items-center overflow-auto text-sm'>
       <div className='flex flex-row items-center justify-between gap-4 p-4'>
         <div className='flex flex-row items-center gap-3'>
           <img
@@ -370,22 +370,19 @@ const Devbar = () => {
             className='h-9'
           />
           <a
-            className='text-lg leading-5'
+            className='text-lg'
             href={env.COSDEN_SOLUTIONS_URL + '/project-react'}
             target='_blank'
             rel='noreferrer'
           >
-            <b>Project React</b>
-            <br />
-            <span className='text-muted-foreground text-sm'>
-              Made by <b>Cosden</b> Solutions
-            </span>
+            <b>airbnb project :: bun & react</b>
           </a>
         </div>
         <div className='flex flex-row items-center gap-4'>
           <Button
             disabled={moduleStep === 0}
             variant='secondary'
+            size='sm'
             onClick={handlePreviousStep}
             className='cursor-pointer'
           >
@@ -394,6 +391,7 @@ const Devbar = () => {
           <Button
             disabled={moduleStep === moduleStepsLength - 1}
             onClick={handleCompleteStep}
+            size='sm'
             className='cursor-pointer'
           >
             Next

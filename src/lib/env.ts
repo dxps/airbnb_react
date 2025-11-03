@@ -10,7 +10,6 @@ const envSchema = z.object({
 });
 
 export const env = envSchema.parse({
-  //   BASE_URL: import.meta.env.BUN_PUBLIC_BASE_URL,
   BASE_URL: process.env.BUN_PUBLIC_BASE_URL,
   COURSE_URL: process.env.BUN_PUBLIC_COURSE_URL,
   COSDEN_SOLUTIONS_URL: process.env.BUN_PUBLIC_COSDEN_SOLUTIONS_URL,

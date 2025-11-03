@@ -34,6 +34,11 @@ const CodeHighlighter = ({
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const syntaxHighlitghterStyle = {
+    theme: theme === 'dark' ? atomDark : oneLight,
+    fontSize: 12,
+  };
+
   return (
     <div className='syntax-highlight relative'>
       <div className='flex items-center justify-between'>
@@ -53,6 +58,7 @@ const CodeHighlighter = ({
       <SyntaxHighlighter
         language={language}
         style={theme === 'dark' ? atomDark : oneLight}
+        customStyle={{ fontSize: '12px' }}
         wrapLines
         showLineNumbers
         lineProps={(lineNumber: number) => {
