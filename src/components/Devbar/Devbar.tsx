@@ -329,7 +329,7 @@ const Devbar = () => {
   // Handles the module change
   const handleModuleChange = (moduleKey: string) => {
     setCurrentModule(moduleKey);
-    setItem('project-react-module', moduleKey);
+    setItem('airbnb_react_module', moduleKey);
   };
 
   // Handles the previous step click
@@ -341,7 +341,7 @@ const Devbar = () => {
       };
 
       setModuleProgress(newModuleProgress);
-      setItem('project-react-moduleProgress', newModuleProgress);
+      setItem('airbnb_react_moduleProgress', newModuleProgress);
     }
   };
 
@@ -354,7 +354,7 @@ const Devbar = () => {
       };
 
       setModuleProgress(newModuleProgress);
-      setItem('project-react-moduleProgress', newModuleProgress);
+      setItem('airbnb_react_moduleProgress', newModuleProgress);
     }
   };
 
@@ -369,14 +369,7 @@ const Devbar = () => {
             alt='logo'
             className='h-9'
           />
-          <a
-            className='text-lg'
-            href={env.COSDEN_SOLUTIONS_URL + '/project-react'}
-            target='_blank'
-            rel='noreferrer'
-          >
-            <b>airbnb project :: bun & react</b>
-          </a>
+          <b>airbnb project :: bun & react</b>
         </div>
         <div className='flex flex-row items-center gap-4'>
           <Button

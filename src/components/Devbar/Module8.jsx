@@ -77,7 +77,7 @@ export const Step2 = () => {
           Link to existing project? - <b>N</b>
         </li>
         <li>
-          What’s your project’s name? - <b>project-react</b>
+          What’s your project’s name? - <b>airbnb_react</b>
         </li>
         <li>
           In which directory is your code located? - <b>./</b>
