@@ -6,6 +6,6 @@
   }
 
   body {
-    @apply bg-background text-foreground relative m-0 grid min-h-screen min-w-[320px] place-items-center;
+    @apply bg-background text-foreground relative m-0 grid min-h-screen min-w-[320px];
   }
 }
