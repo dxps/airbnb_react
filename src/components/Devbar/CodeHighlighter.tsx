@@ -11,7 +11,7 @@ import { Button } from '@/components/ui';
 import { renderToString } from 'react-dom/server';
 
 type CodeHighlighterProps = {
-  children: ReactNode;
+  children: string;
   highlightedLines?: number[];
   language?: string;
   title?: string;
@@ -73,7 +73,7 @@ const CodeHighlighter = ({
         }}
         lineNumberStyle={{ display: 'none' }}
       >
-        {childrenStr}
+        {children}
       </SyntaxHighlighter>
     </div>
   );
