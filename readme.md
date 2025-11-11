@@ -4,6 +4,8 @@
 
 ## Setup
 
+Create the `.env` file using the `cp .env.example .env` command. Update it, if you want/need.
+
 Since this project was created using `bun init` in [Bun](https://bun.com) v1.3.1, `bun` related commands are used:
 
 - Use `bun install` to install the project dependencies.

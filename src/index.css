@@ -8,4 +8,8 @@
   body {
     @apply bg-background text-foreground relative m-0 grid min-h-screen min-w-[320px];
   }
+
+  h2 {
+    @apply text-muted-foreground pb-3 text-xl;
+  }
 }

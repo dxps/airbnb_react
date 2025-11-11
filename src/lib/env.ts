@@ -5,7 +5,6 @@ const envSchema = z.object({
   COURSE_URL: z.url(),
   COSDEN_SOLUTIONS_URL: z.url(),
   DB_KEY: z.string(),
-  DISCORD_URL: z.url(),
   USE_AUTH: z.string().transform((value) => value === 'true'),
 });
 
@@ -14,6 +13,5 @@ export const env = envSchema.parse({
   COURSE_URL: process.env.BUN_PUBLIC_COURSE_URL,
   COSDEN_SOLUTIONS_URL: process.env.BUN_PUBLIC_COSDEN_SOLUTIONS_URL,
   DB_KEY: process.env.BUN_PUBLIC_DB_KEY,
-  DISCORD_URL: process.env.BUN_PUBLIC_DISCORD_URL,
   USE_AUTH: process.env.BUN_PUBLIC_USE_AUTH,
 });
