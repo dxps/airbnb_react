@@ -12,7 +12,7 @@ import logo from './logo.svg';
 import reactLogo from './react.svg';
 import ThemeProvider from './components/ThemeProvider';
 import Devbar from './components/Devbar/Devbar';
-import HomePage from './pages/Homepage';
+import HomePage from './pages/HomePage';
 
 export function App() {
   return (
