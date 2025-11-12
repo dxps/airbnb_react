@@ -19,7 +19,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 2 - State and Event Handlers</h2>
-      <Separator className='mb-2' />
       <p>
         In this module, we'll be working with state and adding some stateful
         variables to our application. We will also be working with event

@@ -23,7 +23,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 5 - Hooks and Performance</h2>
-      <Separator className='mb-2' />
       <p>
         In this module we will focus on optimizations and refactoring our code
         instead of adding new features. We will learn how to think in React and

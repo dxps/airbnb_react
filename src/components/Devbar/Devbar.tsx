@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState, type JSX } from 'react';
-
 import { useTheme } from '@/components/ThemeProvider';
 import {
   Button,
@@ -11,10 +10,8 @@ import {
   SelectValue,
   Separator,
 } from '@/components/ui';
-import { env } from '@/lib/env';
 import { getImageUrl } from '@/lib/utils/images';
 import { getItem, setItem } from '@/lib/utils/localStorage';
-
 import DevbarMenu from './DevbarMenu';
 import {
   Completed as M0Completed,
@@ -134,7 +131,7 @@ import {
 } from './Module8';
 
 // Declares the initial module to start on
-const INITIAL_MODULE = '0-introduction';
+const INITIAL_MODULE = '0. Introduction';
 
 type Modules = Record<
   string,
@@ -145,7 +142,7 @@ type Modules = Record<
 
 // Creates an object with all the modules and their steps
 const modules: Modules = {
-  '0-introduction': {
+  '0. Introduction': {
     steps: {
       0: <M0Intro />,
       1: <M0Step1 />,
@@ -155,7 +152,7 @@ const modules: Modules = {
       5: <M0Completed />,
     },
   },
-  '1-react-fundamentals': {
+  '1. React Fundamentals': {
     steps: {
       0: <M1Intro />,
       1: <M1Step1 />,
@@ -167,7 +164,7 @@ const modules: Modules = {
       7: <M1Completed />,
     },
   },
-  '2-state-and-event-handlers': {
+  '2. State and Event Handlers': {
     steps: {
       0: <M2Intro />,
       1: <M2Step1 />,
@@ -179,7 +176,7 @@ const modules: Modules = {
       7: <M2Completed />,
     },
   },
-  '3-effects-and-data-fetching': {
+  '3. Effects and Data Fetching': {
     steps: {
       0: <M3Intro />,
       1: <M3Step1 />,
@@ -194,7 +191,7 @@ const modules: Modules = {
       10: <M3Completed />,
     },
   },
-  '4-routes-and-navigation': {
+  '4. Routes and Navigation': {
     steps: {
       0: <M4Intro />,
       1: <M4Step1 />,
@@ -212,7 +209,7 @@ const modules: Modules = {
       13: <M4Completed />,
     },
   },
-  '5-hooks-and-performance': {
+  '5. Hooks and Performance': {
     steps: {
       0: <M5Intro />,
       1: <M5Step1 />,
@@ -228,7 +225,7 @@ const modules: Modules = {
       11: <M5Completed />,
     },
   },
-  '6-state-management': {
+  '6. State Management': {
     steps: {
       0: <M6Intro />,
       1: <M6Step1 />,
@@ -249,7 +246,7 @@ const modules: Modules = {
       16: <M6Completed />,
     },
   },
-  '7-forms-and-authentication': {
+  '7. Forms and Authentication': {
     steps: {
       0: <M7Intro />,
       1: <M7Step1 />,
@@ -271,7 +268,7 @@ const modules: Modules = {
       17: <M7Completed />,
     },
   },
-  '8-deploying': {
+  '8. Deploying': {
     steps: {
       0: <M8Intro />,
       1: <M8Step1 />,
@@ -281,7 +278,7 @@ const modules: Modules = {
   },
 };
 
-// Creates an object with the initial progress for each module
+// Creates an object with the initial progress for each module.
 const initialModuleProgress = Object.keys(modules).reduce(
   (acc: Record<string, number>, moduleKey: string) => {
     acc[moduleKey] = 0;

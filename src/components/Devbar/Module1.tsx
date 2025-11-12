@@ -19,7 +19,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 1 - React Fundamentals</h2>
-      <Separator className='mb-2' />
       <p>
         In this module, we will embark on an exciting journey into the world of
         React. We will be building our own listing platform similar to

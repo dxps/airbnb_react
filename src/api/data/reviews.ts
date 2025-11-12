@@ -1,6 +1,25 @@
 import { subDays } from 'date-fns';
 
-export const createReview = (review) => {
+type ReviewInput = {
+  id: number;
+  userId: number;
+  listingId: number;
+  rating: number;
+  comment: string;
+  createdAt?: Date;
+};
+
+type Review = {
+  id: number;
+  userId: number;
+  listingId: number;
+  rating: number;
+  comment: string;
+  createdAt: Date;
+  modifiedAt: Date;
+};
+
+export const createReview = (review: ReviewInput): Review => {
   const { id, userId, listingId, rating, comment, createdAt } = review;
 
   return {
@@ -9,14 +28,14 @@ export const createReview = (review) => {
     listingId,
     rating,
     comment,
-    createdAt: createdAt || new Date(),
+    createdAt: createdAt ?? new Date(),
     modifiedAt: new Date(),
   };
 };
 
 const today = new Date();
 
-export const reviews = [
+export const reviews: Review[] = [
   createReview({
     id: 1,
     userId: 1,

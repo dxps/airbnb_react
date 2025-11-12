@@ -8,8 +8,7 @@ import CodeHighlighter from './CodeHighlighter';
 export const Intro = () => {
   return (
     <div>
-      <h2>Welcome to Project React!</h2>
-      <Separator className='mb-2' />
+      <h2>Module 0 - Introduction</h2>
       <p>
         In this course, we'll be building a real-world project together using
         React. This is a different approach to learning React, as it focuses

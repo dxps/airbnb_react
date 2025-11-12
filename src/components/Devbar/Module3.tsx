@@ -22,7 +22,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 3 - Effects and Data Fetching</h2>
-      <Separator className='mb-2' />
       <p>
         In this module, we'll be working with effects and data fetching. We will
         learn about <code>useEffect</code> and how it works, learn about

@@ -25,7 +25,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 4 - Routes and Navigation</h2>
-      <Separator className='mb-2' />
       <p>
         In this module we'll be working with routes and navigation. We will
         learn how to work with <code>react-router-dom</code> to add navigation

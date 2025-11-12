@@ -6,17 +6,22 @@ import { locations } from './locations';
 import { reviews } from './reviews';
 import { users } from './users';
 
-// Add all data to localstorage to simulate database
-export const seedLocalDatabase = () => {
-  const database = getItem(env.DB_KEY);
+type Database = {
+  listings: typeof listings;
+  locations: typeof locations;
+  users: typeof users;
+  reviews: typeof reviews;
+};
 
-  // If a database already exists, do nothing
+// Add all data to localstorage to simulate database
+export const seedLocalDatabase = (): void => {
+  const database = getItem<Database>(env.DB_KEY);
+
   if (database) {
     return;
   }
 
-  // Creates the initial database with all data
-  const initialDatabase = {
+  const initialDatabase: Database = {
     listings,
     locations,
     users,

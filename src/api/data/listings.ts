@@ -1,8 +1,9 @@
+import { Listing, type Availability } from '@/types';
 import { addDays, startOfDay } from 'date-fns';
 
 const startOfToday = startOfDay(new Date());
 
-export const createListing = (listing) => {
+export const createListing = (listing: Listing) => {
   const {
     availability,
     description,
@@ -17,7 +18,7 @@ export const createListing = (listing) => {
     userId,
   } = listing;
 
-  return {
+  return new Listing({
     id,
     name,
     description,
@@ -30,11 +31,11 @@ export const createListing = (listing) => {
     guestFavorite,
     userId,
     createdAt: new Date(),
-    modifiedAt: new Date(),
-  };
+    updatedAt: new Date(),
+  });
 };
 
-export const isListingAvailable = (listing, dates) => {
+export const isListingAvailable = (listing: Listing, dates: Availability) => {
   const { availability } = listing;
   const availableFrom = new Date(availability.from);
   const availableTo = new Date(availability.to);

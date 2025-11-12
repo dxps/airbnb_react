@@ -1,4 +1,20 @@
-export const createUser = (user) => {
+type UserInput = {
+  id: number;
+  avatarUrl: string;
+  bio: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  initials: string;
+  password: string;
+};
+
+type User = UserInput & {
+  createdAt: Date;
+  modifiedAt: Date;
+};
+
+export const createUser = (user: UserInput): User => {
   const { avatarUrl, bio, email, firstName, id, initials, lastName, password } =
     user;
 
@@ -16,7 +32,7 @@ export const createUser = (user) => {
   };
 };
 
-export const users = [
+export const users: User[] = [
   createUser({
     id: 1,
     avatarUrl: 'https://i.pravatar.cc/150?img=1',

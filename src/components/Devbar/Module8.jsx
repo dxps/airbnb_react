@@ -9,7 +9,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 8 - Deploying</h2>
-      <Separator className='mb-2' />
       <p>
         Welcome to the 8th module of the course! In this module, we'll learn how
         to deploy our application to the web. We'll use Vercel to deploy our

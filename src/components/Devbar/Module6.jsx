@@ -28,7 +28,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 6 - State Management</h2>
-      <Separator className='mb-2' />
       <p>
         In this module we'll be setting up global state in our application.
         Global state means state that is accessible by any component no matter

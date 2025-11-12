@@ -29,7 +29,6 @@ export const Intro = () => {
   return (
     <div>
       <h2>Module 7 - Forms and Authentication</h2>
-      <Separator className='mb-2' />
       <p>
         In this module we will be implementing forms and authentication. We'll
         be moving our app behind a sign in screen and only allowing signed in
