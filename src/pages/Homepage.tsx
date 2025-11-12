@@ -38,12 +38,6 @@ const HomePage = () => {
     }
 
     setListings(filteredListings);
-    console.log(
-      '>>> for search: ',
-      search,
-      'got filteredListings',
-      filteredListings,
-    );
   };
 
   return (

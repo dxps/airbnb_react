@@ -3,6 +3,8 @@ import { Button, Input } from './ui';
 import { DateRangePicker } from './ui/date-range-picker';
 import { Search } from 'lucide-react';
 import { Stepper } from './ui/stepper';
+import type { Availability } from '@/types';
+import { addDays } from 'date-fns';
 
 type onChangeFn = ({
   dates,
@@ -15,7 +17,11 @@ type onChangeFn = ({
 }) => void;
 
 function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
-  const [dates, setDates] = useState();
+  const initialAvailability: Availability = {
+    from: new Date(),
+    to: addDays(new Date(), 3),
+  };
+  const [dates, setDates] = useState(initialAvailability);
   const [guests, setGuests] = useState(0);
   const [search, setSearch] = useState('');
 
@@ -31,7 +37,16 @@ function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <DateRangePicker />
+      <DateRangePicker
+        initialDateFrom={dates.from}
+        initialDateTo={dates.to}
+        onUpdate={(values) => {
+          setDates({
+            from: values.range.from,
+            to: values.range.to!,
+          });
+        }}
+      />
       <Stepper label='guest' value={guests} onChange={setGuests} />
       <Button onClick={handleSubmit}>
         <Search className='h-4 w-4' />
