@@ -8,6 +8,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
+import { seedLocalDatabase } from './api/data/seed';
+
+// Seeds the local storage database with data.
+seedLocalDatabase();
 
 const elem = document.getElementById('root')!;
 const app = (

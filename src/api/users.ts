@@ -10,7 +10,7 @@ type User = {
   initials: string;
   password: string;
   createdAt: Date;
-  modifiedAt: Date;
+  updatedAt: Date;
 };
 
 export const getUserById = (id: number): User | undefined => {

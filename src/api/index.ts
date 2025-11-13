@@ -51,6 +51,7 @@ adapter.onGet(/\/api\/listings\/\d+/).reply(
 // Gets all listings
 adapter.onGet('/api/listings').reply(
   withAuth(async (config: AxiosRequestConfig) => {
+    console.log('>>> [api adapter] get all listings');
     const { params } = config;
 
     const listings = getListings(params || {}) || [];
@@ -79,6 +80,7 @@ adapter.onGet('/api/reviews').reply(
   withAuth(async (config: AxiosRequestConfig) => {
     const { params } = config;
     const reviews = getReviewsByListingId(params?.listingId);
+
     return [200, reviews];
   }),
 );

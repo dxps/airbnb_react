@@ -57,11 +57,11 @@ export const getListings = (
 
 // Creates a listing
 export const createListing = (
-  data: Omit<Listing, 'id' | 'createdAt' | 'modifiedAt' | 'userId'>,
+  data: Omit<Listing, 'id' | 'createdAt' | 'updatedAt' | 'userId'>,
 ): Listing | undefined => {
   const listings = getDatabaseTable<Listing[]>('listings');
   if (!listings) {
-    console.log('No listings table found');
+    console.log('>>> [createListing] No listings table found');
     return;
   }
 

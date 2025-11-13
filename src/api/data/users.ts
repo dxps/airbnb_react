@@ -11,7 +11,7 @@ type UserInput = {
 
 type User = UserInput & {
   createdAt: Date;
-  modifiedAt: Date;
+  updatedAt: Date;
 };
 
 export const createUser = (user: UserInput): User => {
@@ -28,7 +28,7 @@ export const createUser = (user: UserInput): User => {
     initials,
     password,
     createdAt: new Date(),
-    modifiedAt: new Date(),
+    updatedAt: new Date(),
   };
 };
 

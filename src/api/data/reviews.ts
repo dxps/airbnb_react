@@ -16,7 +16,7 @@ type Review = {
   rating: number;
   comment: string;
   createdAt: Date;
-  modifiedAt: Date;
+  updatedAt: Date;
 };
 
 export const createReview = (review: ReviewInput): Review => {
@@ -29,7 +29,7 @@ export const createReview = (review: ReviewInput): Review => {
     rating,
     comment,
     createdAt: createdAt ?? new Date(),
-    modifiedAt: new Date(),
+    updatedAt: new Date(),
   };
 };
 

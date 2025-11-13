@@ -5,7 +5,7 @@ type Location = {
   name: string;
   country: string;
   createdAt: Date;
-  modifiedAt: Date;
+  updatedAt: Date;
 };
 
 export const getLocationById = (id: number): Location | undefined => {

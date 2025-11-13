@@ -7,7 +7,7 @@ type Review = {
   rating: number;
   comment: string;
   createdAt: Date;
-  modifiedAt: Date;
+  updatedAt: Date;
 };
 
 export const getReviewsByListingId = (listingId: number | string): Review[] => {
