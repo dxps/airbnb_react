@@ -28,7 +28,7 @@ function ListingCardImages(props: ListingCardImagesProps) {
         {images.map((image, index) => (
           <CarouselItem key={image} className='pl-0'>
             <img
-              className='h-[200px] w-full rounded-md object-cover'
+              className='h-[200px] w-full rounded-t-lg object-cover'
               src={getImageUrl(image)}
               alt={`${name} Image ${index + 1}`}
             />
