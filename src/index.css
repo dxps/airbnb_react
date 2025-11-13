@@ -16,4 +16,8 @@
   h3 {
     @apply text-muted-foreground pt-3 pb-1 text-lg;
   }
+
+  code {
+    @apply text-emerald-500;
+  }
 }
