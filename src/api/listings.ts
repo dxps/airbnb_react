@@ -1,12 +1,6 @@
-import type { Availability, Listing } from '@/types';
+import type { Availability, Listing, ListingFilter } from '@/types';
 import { isListingAvailable } from './data/listings';
 import { getDatabaseTable, setDatabaseTable } from './helpers';
-
-type GetListingsParams = {
-  dates?: Availability;
-  guests?: number;
-  search?: string;
-};
 
 // Gets listing by id
 export const getListingById = (id: number): Listing | undefined => {
@@ -20,9 +14,7 @@ export const getListingById = (id: number): Listing | undefined => {
 };
 
 // Gets listings using optional date range and search parameters
-export const getListings = (
-  params: GetListingsParams = {},
-): Listing[] | undefined => {
+export const getListings = (params: ListingFilter): Listing[] | undefined => {
   const { dates, guests, search } = params;
 
   const listings = getDatabaseTable<Listing[]>('listings');

@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui';
 import { getImageUrl } from '@/lib/utils/images';
 import type { Listing } from '@/types';
 import { getLocationById } from '@/api/locations';
+import ListingCardImages from './ListingCardImages';
 
 type ListingCardProps = {
   listing: Listing;
@@ -10,13 +11,11 @@ type ListingCardProps = {
 
 const ListingCard = ({ listing }: ListingCardProps) => {
   const location = getLocationById(listing.locationId)!;
+
   return (
     <Card className='w-[320px]'>
-      <img
-        className='-mt-8 h-[200px] w-full rounded-t-lg object-cover'
-        src={getImageUrl(listing.images[0])}
-        alt={listing.name}
-      />
+      <ListingCardImages listing={listing} />
+
       <CardContent className='p-4'>
         <h2 className='mb-2 text-xl font-semibold'>{listing.name}</h2>
         <div className='flex items-center gap-2'>
