@@ -32,7 +32,7 @@ function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
   return (
     <div className='flex flex-row items-center justify-center gap-2'>
       <Input
-        className='w-[400px]'
+        className='w-[250px]'
         placeholder='Search destinations'
         value={search}
         onChange={(e) => setSearch(e.target.value)}

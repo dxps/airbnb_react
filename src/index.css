@@ -12,4 +12,8 @@
   h2 {
     @apply text-muted-foreground pb-3 text-xl;
   }
+
+  h3 {
+    @apply text-muted-foreground pt-3 pb-1 text-lg;
+  }
 }
