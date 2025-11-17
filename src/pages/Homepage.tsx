@@ -6,6 +6,8 @@ import { Separator } from '@/components/ui';
 import { Spinner } from '@/components/ui/spinner';
 import type { ListingFilter } from '@/types';
 import { useEffect, useRef, useState } from 'react';
+import { HomeIcon } from '@radix-ui/react-icons';
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const [listings, setListings] = useState([]);
@@ -63,7 +65,12 @@ const HomePage = () => {
   return (
     <div className='container py-4'>
       <div className='mb-4'>
-        <ListingFilters onChange={handleFilters} />
+        <div className='flex flex-row items-center justify-center'>
+          <Link to='/'>
+            <HomeIcon className='mr-10 h-6 w-6' />
+          </Link>
+          <ListingFilters onChange={handleFilters} />
+        </div>
         <Separator className='my-4' />
       </div>
       {renderListingList()}

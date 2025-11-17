@@ -5,10 +5,15 @@ import { getLocationById } from '@/api/locations';
 import ListingDetailsCardImages from './ListingDetailsCardImages';
 
 const ListingDetailsCard = ({ listing }: { listing: Listing }) => {
+  if (!listing) {
+    return null;
+  }
   const location = getLocationById(listing.locationId)!;
 
+  console.log('>>> [ListingDetailsCard] listing', listing);
+
   return (
-    <Card className='mx-auto p-4'>
+    <Card className='mx-4 p-4'>
       <ListingDetailsCardImages listing={listing} />
       <div className='flex flex-col gap-2'>
         <h1 className='mb-2 text-2xl font-bold'>{listing.name}</h1>

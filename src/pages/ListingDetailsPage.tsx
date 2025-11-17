@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import api from '@/api';
 import ListingDetailsCard from '@/components/ListingDetailsCard';
-import { Spinner } from '@/components/ui';
+import { Separator, Spinner } from '@/components/ui';
 import axios from 'axios';
 import type { Listing } from '@/types';
+import { HomeIcon } from '@radix-ui/react-icons';
 
 const ListingDetailsPage = () => {
   const { listingId } = useParams();
@@ -14,6 +15,8 @@ const ListingDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const abortController = useRef<AbortController>(null);
+
+  console.log('>>> [ListingDetailsPage] listingId', listingId);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -57,7 +60,17 @@ const ListingDetailsPage = () => {
       return <div className='text-center'>{error}</div>;
     }
 
-    return <ListingDetailsCard listing={listing!} />;
+    return (
+      <>
+        <div className='flex flex-row items-center justify-center'>
+          <Link to='/'>
+            <HomeIcon className='h-6 w-6' />
+          </Link>
+        </div>
+        <Separator className='my-4' />
+        <ListingDetailsCard listing={listing!} />
+      </>
+    );
   };
 
   return <div className='container py-4'>{renderListing()}</div>;
