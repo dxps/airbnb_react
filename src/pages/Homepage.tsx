@@ -3,7 +3,7 @@ import ListingList from '@/components/ListingList';
 import { Separator } from '@/components/ui';
 import { Spinner } from '@/components/ui/spinner';
 import type { Listing, ListingFilter } from '@/types';
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { HomeIcon } from '@radix-ui/react-icons';
 import { Link } from 'react-router-dom';
 import useFetch from '@/hooks/useFetch';
@@ -19,9 +19,9 @@ const HomePage = () => {
     isLoading,
   } = useFetch<Listing[]>('/api/listings', fetchOptions);
 
-  const handleFilters = (filter: ListingFilter) => {
+  const handleFilters = useCallback((filter: ListingFilter) => {
     setFilter(filter);
-  };
+  }, []);
 
   const renderListingList = () => {
     if (isLoading) {
