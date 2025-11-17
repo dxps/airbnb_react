@@ -9,6 +9,8 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from './App';
 import { seedLocalDatabase } from './api/data/seed';
+import Router from './Router';
+import ThemeProvider from './components/ThemeProvider';
 
 // Seeds the local storage database with data.
 seedLocalDatabase();
@@ -16,7 +18,9 @@ seedLocalDatabase();
 const elem = document.getElementById('root')!;
 const app = (
   <StrictMode>
-    <App />
+    <ThemeProvider>
+      <Router />
+    </ThemeProvider>
   </StrictMode>
 );
 

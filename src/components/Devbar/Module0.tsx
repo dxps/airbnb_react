@@ -164,7 +164,7 @@ export const Step4 = () => {
 export const Completed = () => {
   return (
     <div className='relative'>
-      <CheckCircle className='mx-auto mb-8 h-40 w-40' />
+      <CheckCircle className='mx-auto mb-8 h-20 w-20' />
       <h2>Module Completed!</h2>
       <p>
         Congratulations! You've completed the introductionary module of the

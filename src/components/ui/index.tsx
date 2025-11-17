@@ -8,4 +8,5 @@ export * from './label';
 export * from './progress';
 export * from './select';
 export * from './separator';
+export * from './spinner';
 export * from './textarea';

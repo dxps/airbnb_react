@@ -12,6 +12,7 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filter, setFilter] = useState<ListingFilter>();
+
   const abortController = useRef<AbortController>(null);
 
   useEffect(() => {
