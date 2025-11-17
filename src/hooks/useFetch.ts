@@ -2,7 +2,7 @@ import axios, { type AxiosRequestConfig } from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import api from '@/api';
 
-const useFetch = <T>(url: string, options: AxiosRequestConfig) => {
+const useFetch = <T>(url: string, options?: AxiosRequestConfig) => {
   const [data, setData] = useState<T>();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);

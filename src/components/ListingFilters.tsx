@@ -29,8 +29,6 @@ function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
     onChange({ dates, guests, search });
   };
 
-  console.log('>>> [ListingFilters] rendered');
-
   return (
     <div className='flex flex-row items-center justify-center gap-2'>
       <Input

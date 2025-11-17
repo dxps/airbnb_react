@@ -1,49 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import api from '@/api';
 import ListingDetailsCard from '@/components/ListingDetailsCard';
 import { Separator, Spinner } from '@/components/ui';
-import axios from 'axios';
 import type { Listing } from '@/types';
 import { HomeIcon } from '@radix-ui/react-icons';
+import useFetch from '@/hooks/useFetch';
 
 const ListingDetailsPage = () => {
   const { listingId } = useParams();
 
-  const [listing, setListing] = useState<Listing>();
-  const [error, setError] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const abortController = useRef<AbortController>(null);
-
-  useEffect(() => {
-    const fetchListing = async () => {
-      setIsLoading(true);
-      setError(null);
-
-      abortController.current = new AbortController();
-
-      try {
-        const response = await api.get(`/api/listings/${listingId}`, {
-          signal: abortController.current?.signal,
-        });
-        setListing(response.data);
-      } catch (error) {
-        if (axios.isCancel(error)) {
-          return;
-        }
-        setError('Something went wrong. Please try again later.');
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchListing();
-
-    return () => {
-      abortController.current?.abort();
-    };
-  }, [listingId]);
+  const {
+    data: listing,
+    error,
+    isLoading,
+  } = useFetch<Listing>(`/api/listings/${listingId}`);
 
   const renderListing = () => {
     if (isLoading) {
