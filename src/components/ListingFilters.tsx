@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import { Button, Input } from './ui';
 import { DateRangePicker } from './ui/date-range-picker';
 import { Search } from 'lucide-react';
@@ -29,6 +29,8 @@ function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
     onChange({ dates, guests, search });
   };
 
+  console.log('>>> [ListingFilters] rendered');
+
   return (
     <div className='flex flex-row items-center justify-center gap-2'>
       <Input
@@ -55,4 +57,4 @@ function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
   );
 }
 
-export default ListingFilters;
+export default memo(ListingFilters);
