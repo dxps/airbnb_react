@@ -1,12 +1,12 @@
 import ListingFilters from '@/components/ListingFilters';
 import ListingList from '@/components/ListingList';
 import { Separator } from '@/components/ui';
-import { Spinner } from '@/components/ui/spinner';
 import type { Listing, ListingFilter } from '@/types';
 import { useCallback, useMemo, useState } from 'react';
 import { HomeIcon } from '@radix-ui/react-icons';
 import { Link } from 'react-router-dom';
 import useFetch from '@/hooks/useFetch';
+import DataRenderer from '@/components/DataRenderer';
 
 const HomePage = () => {
   const [filter, setFilter] = useState<ListingFilter>();
@@ -23,20 +23,6 @@ const HomePage = () => {
     setFilter(filter);
   }, []);
 
-  const renderListingList = () => {
-    if (isLoading) {
-      return (
-        <div className='flex justify-center'>
-          <Spinner />
-        </div>
-      );
-    }
-    if (error) {
-      return <div className='text-center text-red-500'>{error}</div>;
-    }
-    return <ListingList listings={listings!} />;
-  };
-
   return (
     <div className='container py-4'>
       <div className='mb-4'>
@@ -48,7 +34,9 @@ const HomePage = () => {
         </div>
         <Separator className='my-4' />
       </div>
-      {renderListingList()}
+      <DataRenderer error={error} isLoading={isLoading}>
+        <ListingList listings={listings!} />
+      </DataRenderer>
     </div>
   );
 };
