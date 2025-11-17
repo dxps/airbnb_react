@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import {
   Carousel,
   CarouselContent,
@@ -10,12 +9,8 @@ import {
 import { getImageUrl } from '@/lib/utils/images';
 import type { Listing } from '@/types';
 
-type ListingCardImagesProps = {
-  listing: Listing;
-};
-
-function ListingCardImages(props: ListingCardImagesProps) {
-  const { images, name } = props.listing;
+function ListingCardImages({ listing }: { listing: Listing }) {
+  const { images, name } = listing;
   const [isHovering, setIsHovering] = useState(false);
 
   return (

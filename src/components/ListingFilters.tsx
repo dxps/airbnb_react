@@ -22,7 +22,7 @@ function ListingFilters({ onChange: onChange }: { onChange: onChangeFn }) {
     to: addDays(new Date(), 3),
   };
   const [dates, setDates] = useState(initialAvailability);
-  const [guests, setGuests] = useState(0);
+  const [guests, setGuests] = useState(1);
   const [search, setSearch] = useState('');
 
   const handleSubmit = () => {

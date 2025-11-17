@@ -19,7 +19,7 @@ export const getListings = (params: ListingFilter): Listing[] | undefined => {
 
   const listings = getDatabaseTable<Listing[]>('listings');
   if (!listings) {
-    console.log('>>> [getListing] No listings db table found');
+    console.log('>>> [getListings] No listings db table found');
     return;
   }
 

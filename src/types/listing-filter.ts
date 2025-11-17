@@ -7,7 +7,7 @@ export class ListingFilter {
 
   constructor({ dates, guests, search }: ListingFilter) {
     this.dates = dates;
-    this.guests = guests || 0;
+    this.guests = guests || 1;
     this.search = search || '';
   }
 }
