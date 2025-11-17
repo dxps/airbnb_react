@@ -16,8 +16,6 @@ const ListingDetailsPage = () => {
 
   const abortController = useRef<AbortController>(null);
 
-  console.log('>>> [ListingDetailsPage] listingId', listingId);
-
   useEffect(() => {
     const fetchListing = async () => {
       setIsLoading(true);

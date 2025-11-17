@@ -6,7 +6,7 @@ import { getDatabaseTable, setDatabaseTable } from './helpers';
 export const getListingById = (id: number): Listing | undefined => {
   const listings = getDatabaseTable<Listing[]>('listings');
   if (!listings) {
-    console.log('No listings table found');
+    console.log('>>> [getListingById] No listings db table found');
     return;
   }
 
@@ -19,7 +19,7 @@ export const getListings = (params: ListingFilter): Listing[] | undefined => {
 
   const listings = getDatabaseTable<Listing[]>('listings');
   if (!listings) {
-    console.log('No listings table found');
+    console.log('>>> [getListing] No listings db table found');
     return;
   }
 
@@ -53,7 +53,7 @@ export const createListing = (
 ): Listing | undefined => {
   const listings = getDatabaseTable<Listing[]>('listings');
   if (!listings) {
-    console.log('>>> [createListing] No listings table found');
+    console.log('>>> [createListing] No listings db table found');
     return;
   }
 

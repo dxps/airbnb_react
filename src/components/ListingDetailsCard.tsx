@@ -10,8 +10,6 @@ const ListingDetailsCard = ({ listing }: { listing: Listing }) => {
   }
   const location = getLocationById(listing.locationId)!;
 
-  console.log('>>> [ListingDetailsCard] listing', listing);
-
   return (
     <Card className='mx-4 p-4'>
       <ListingDetailsCardImages listing={listing} />

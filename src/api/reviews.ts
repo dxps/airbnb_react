@@ -13,7 +13,7 @@ type Review = {
 export const getReviewsByListingId = (listingId: number | string): Review[] => {
   const reviews = getDatabaseTable<Review[]>('reviews');
   if (!reviews) {
-    console.log('No reviews table found');
+    console.log('>>> [getReviewsByListingId] No reviews db table found');
     return [];
   }
 

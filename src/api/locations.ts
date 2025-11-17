@@ -11,7 +11,7 @@ type Location = {
 export const getLocationById = (id: number): Location | undefined => {
   const locations = getDatabaseTable<Location[]>('locations');
   if (!locations) {
-    console.log('No locations table found');
+    console.log('>>> [getLocationById] No locations table found');
     return;
   }
 

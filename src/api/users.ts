@@ -16,7 +16,7 @@ type User = {
 export const getUserById = (id: number): User | undefined => {
   const users = getDatabaseTable<User[]>('users');
   if (!users) {
-    console.log('No users table found');
+    console.log('>>> [getUserById] No users db table found');
     return;
   }
 
@@ -31,7 +31,7 @@ export const getUser = (data: {
 
   const users = getDatabaseTable<User[]>('users');
   if (!users) {
-    console.log('No users table found');
+    console.log('>>> [getUser] No users db table found');
     return;
   }
 
