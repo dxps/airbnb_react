@@ -31,14 +31,14 @@ export const wait = (ms: number): Promise<void> =>
 export const getDatabaseTable = <T = unknown>(
   entity: string,
 ): T | undefined => {
-  const db = getItem<DbData>(env.DB_KEY);
+  const db = getItem<DbData>(env.DB);
   return db ? (db[entity] as T) : undefined;
 };
 
 export const setDatabaseTable = (entity: string, data: unknown): void => {
-  const db = getItem<DbData>(env.DB_KEY) ?? {};
+  const db = getItem<DbData>(env.DB + entity) ?? {};
   db[entity] = data;
-  setItem(env.DB_KEY, db);
+  setItem(env.DB + entity, db);
 };
 
 // Removes the password from a user object.

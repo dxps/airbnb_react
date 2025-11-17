@@ -15,7 +15,7 @@ type Database = {
 
 // Add all data to localstorage to simulate database
 export const seedLocalDatabase = (): void => {
-  const database = getItem<Database>(env.DB_KEY);
+  const database = getItem<Database>(env.DB);
 
   if (database) {
     return;
@@ -28,5 +28,5 @@ export const seedLocalDatabase = (): void => {
     reviews,
   };
 
-  setItem(env.DB_KEY, initialDatabase);
+  setItem(env.DB, initialDatabase);
 };
