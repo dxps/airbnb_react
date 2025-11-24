@@ -34,7 +34,11 @@ export function APITester() {
 
   return (
     <div className='flex flex-col gap-6'>
-      <form onSubmit={testEndpoint} className='flex items-center gap-2'>
+      <form
+        id='api-tester-form'
+        onSubmit={testEndpoint}
+        className='flex items-center gap-2'
+      >
         <Label htmlFor='method' className='sr-only'>
           Method
         </Label>
