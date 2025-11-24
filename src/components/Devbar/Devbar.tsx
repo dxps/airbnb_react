@@ -356,72 +356,75 @@ const Devbar = () => {
   };
 
   return (
-    <div className='bg-card relative h-screen w-[550px] flex-col items-center overflow-y-scroll text-sm'>
-      <div className='flex flex-row items-center justify-between gap-4 p-4'>
-        <div className='flex flex-row items-center gap-3'>
-          <img
-            src={getImageUrl(
-              theme === 'dark' ? '100w-logo.png' : '100w-logo-black.png',
-            )}
-            alt='logo'
-            className='h-9'
-          />
-          <b>airbnb project :: bun & react</b>
+    <div className='bg-card relative flex h-screen w-[550px] flex-col text-sm'>
+      <div>
+        <div className='flex flex-row items-center justify-between gap-4 p-4'>
+          <div className='flex flex-row items-center gap-3'>
+            <img
+              src={getImageUrl(
+                theme === 'dark' ? '100w-logo.png' : '100w-logo-black.png',
+              )}
+              alt='logo'
+              className='h-9'
+            />
+            <b>airbnb project :: bun & react</b>
+          </div>
+          <div className='flex flex-row items-center gap-4'>
+            <Button
+              disabled={moduleStep === 0}
+              variant='secondary'
+              size='sm'
+              onClick={handlePreviousStep}
+              className='cursor-pointer'
+            >
+              Previous
+            </Button>
+            <Button
+              disabled={moduleStep === moduleStepsLength - 1}
+              onClick={handleCompleteStep}
+              size='sm'
+              className='cursor-pointer'
+            >
+              Next
+            </Button>
+            <DevbarMenu />
+          </div>
         </div>
-        <div className='flex flex-row items-center gap-4'>
-          <Button
-            disabled={moduleStep === 0}
-            variant='secondary'
-            size='sm'
-            onClick={handlePreviousStep}
-            className='cursor-pointer'
+
+        <div className='p-4'>
+          <Progress value={progressPercentage} />
+        </div>
+
+        <div className='p-4 pb-4'>
+          <Select
+            defaultValue={currentModule}
+            onValueChange={handleModuleChange}
           >
-            Previous
-          </Button>
-          <Button
-            disabled={moduleStep === moduleStepsLength - 1}
-            onClick={handleCompleteStep}
-            size='sm'
-            className='cursor-pointer'
-          >
-            Next
-          </Button>
-          <DevbarMenu />
+            <SelectTrigger className='mb-2 w-full'>
+              <SelectValue placeholder='Select a module' />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.keys(modules).map((moduleKey) => (
+                <SelectItem key={moduleKey} value={moduleKey}>
+                  {moduleKey}
+                  <span className='text-muted-foreground ml-2 text-sm'>
+                    {moduleProgress[moduleKey]! + 1 ===
+                    Object.keys(modules[moduleKey]!.steps).length
+                      ? 'Completed'
+                      : `(${moduleProgress[moduleKey]! + 1} of ${
+                          Object.keys(modules[moduleKey]!.steps).length
+                        } tasks)`}
+                  </span>
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
-      <Separator />
-
-      <div className='p-4'>
-        <Progress value={progressPercentage} />
+      <div id='test' className='min-h-0 flex-1 overflow-y-auto px-4 pb-4'>
+        {modules[currentModule]!.steps[moduleStep]}
       </div>
-
-      <Separator />
-
-      <div className='p-4 pb-0'>
-        <Select defaultValue={currentModule} onValueChange={handleModuleChange}>
-          <SelectTrigger className='mb-2 w-full'>
-            <SelectValue placeholder='Select a module' />
-          </SelectTrigger>
-          <SelectContent>
-            {Object.keys(modules).map((moduleKey) => (
-              <SelectItem key={moduleKey} value={moduleKey}>
-                {moduleKey}
-                <span className='text-muted-foreground ml-2 text-sm'>
-                  {moduleProgress[moduleKey]! + 1 ===
-                  Object.keys(modules[moduleKey]!.steps).length
-                    ? 'Completed'
-                    : `(${moduleProgress[moduleKey]! + 1} of ${
-                        Object.keys(modules[moduleKey]!.steps).length
-                      } tasks)`}
-                </span>
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
-      </div>
-
-      <div className='p-4'>{modules[currentModule]!.steps[moduleStep]}</div>
     </div>
   );
 };
