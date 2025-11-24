@@ -119,9 +119,9 @@
   }
 
   ::-webkit-scrollbar {
-    @apply w-1.5 bg-transparent;
+    @apply h-1.5 w-1.5 bg-transparent;
   }
   ::-webkit-scrollbar-thumb {
-    @apply /*color trackbar*/ rounded-xl bg-gray-500;
+    @apply rounded-xl bg-gray-500;
   }
 }
