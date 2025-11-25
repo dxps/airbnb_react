@@ -28,7 +28,7 @@ const HomePage = () => {
       <div className='mb-4'>
         <div className='flex flex-row items-center justify-center'>
           <Link to='/'>
-            <HomeIcon className='mr-10 h-6 w-6' />
+            <HomeIcon className='mr-4 h-6 w-6' />
           </Link>
           <ListingFilters onChange={handleFilters} />
         </div>

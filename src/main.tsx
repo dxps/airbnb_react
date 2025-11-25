@@ -1,16 +1,15 @@
 /**
- * This file is the entry point for the React app, it sets up the root
- * element and renders the App component to the DOM.
- *
- * It is included in `src/index.html`.
+ * This file is the entry point for the React app, and referred in `src/index.html`.
+ * It sets up the root element and renders the App component to the DOM.
  */
 
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './App';
-import { seedLocalDatabase } from './api/data/seed';
+import { Provider } from 'react-redux';
+import { seedLocalDatabase } from '@/api/data/seed';
 import Router from './Router';
-import ThemeProvider from './components/ThemeProvider';
+import ThemeProvider from '@/components/ThemeProvider';
+import { store } from '@/state/store';
 
 // Seeds the local storage database with data.
 seedLocalDatabase();
@@ -19,7 +18,9 @@ const elem = document.getElementById('root')!;
 const app = (
   <StrictMode>
     <ThemeProvider>
-      <Router />
+      <Provider store={store}>
+        <Router />
+      </Provider>
     </ThemeProvider>
   </StrictMode>
 );

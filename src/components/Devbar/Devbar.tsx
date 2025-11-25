@@ -375,15 +375,16 @@ const Devbar = () => {
               variant='secondary'
               size='sm'
               onClick={handlePreviousStep}
-              className='cursor-pointer'
+              className='cursor-pointer border border-transparent hover:border hover:border-green-400 dark:hover:border-green-600'
             >
               Previous
             </Button>
             <Button
               disabled={moduleStep === moduleStepsLength - 1}
-              onClick={handleCompleteStep}
+              variant='secondary'
               size='sm'
-              className='cursor-pointer'
+              onClick={handleCompleteStep}
+              className='cursor-pointer border border-transparent hover:border hover:border-green-400 dark:hover:border-green-600'
             >
               Next
             </Button>
@@ -422,7 +423,7 @@ const Devbar = () => {
         </div>
       </div>
 
-      <div id='test' className='min-h-0 flex-1 overflow-y-auto px-4 pb-4'>
+      <div className='min-h-0 flex-1 overflow-y-auto px-4 pb-4'>
         {modules[currentModule]!.steps[moduleStep]}
       </div>
     </div>
