@@ -28,7 +28,7 @@ const HomePage: React.FC = () => {
 
     return () => {
       console.log('>>> [useEffect] on cleanup, status:', status);
-      if (status !== 'idle') {
+      if (status !== 'idle' && status !== 'succeeded') {
         request.abort();
       }
     };

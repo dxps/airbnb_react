@@ -1,6 +1,7 @@
 import './index.css';
 import Devbar from './components/Devbar/Devbar';
 import { Outlet } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 export function App() {
   return (
@@ -9,6 +10,7 @@ export function App() {
         <Devbar />
       </div>
       <div className='ml-[550px]'>
+        <Navbar />
         <Outlet />
       </div>
     </>
