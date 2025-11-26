@@ -4,6 +4,7 @@ import type { Listing } from '@/types';
 import { getLocationById } from '@/api/locations';
 import ListingCardImages from './ListingCardImages';
 import { Link } from 'react-router-dom';
+import ListingFavoriteButton from './ListingFavoriteButton';
 
 const ListingCard = ({ listing }: { listing: Listing }) => {
   const location = getLocationById(listing.locationId)!;
@@ -11,7 +12,10 @@ const ListingCard = ({ listing }: { listing: Listing }) => {
   return (
     <Link to={`/listings/${listing.id}`}>
       <Card className='w-[320px] hover:border-green-400 dark:hover:border-green-700'>
-        <ListingCardImages listing={listing} />
+        <div className='relative'>
+          <ListingCardImages listing={listing} />
+          <ListingFavoriteButton listing={listing} className='absolute top-4 right-4' />
+        </div>
 
         <CardContent className='p-4'>
           <h2 className='mb-2 text-xl font-semibold'>{listing.name}</h2>
