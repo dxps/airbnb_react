@@ -1,0 +1,10 @@
+{
+  "bracketSpacing": true,
+  "jsxSingleQuote": true,
+  "printWidth": 100,
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "quoteProps": "consistent",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all"
+}

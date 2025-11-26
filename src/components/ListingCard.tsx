@@ -18,8 +18,7 @@ const ListingCard = ({ listing }: { listing: Listing }) => {
           <div className='flex items-center gap-2'>
             <DollarSign className='text-primary h-4 w-4' />
             <span className='text-muted-foreground'>
-              <span className='text-foreground font-bold'>{listing.price}</span>{' '}
-              / night
+              <span className='text-foreground font-bold'>{listing.price}</span> / night
             </span>
           </div>
           <div className='flex items-center gap-2'>
@@ -28,9 +27,7 @@ const ListingCard = ({ listing }: { listing: Listing }) => {
           </div>
           <div className='flex items-center gap-2'>
             <Users className='text-primary h-4 w-4' />
-            <span className='text-muted-foreground'>
-              {listing.maxGuests} Guests
-            </span>
+            <span className='text-muted-foreground'>{listing.maxGuests} Guests</span>
           </div>
         </CardContent>
       </Card>

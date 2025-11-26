@@ -26,9 +26,7 @@ export const getListings = (params: ListingFilter): Listing[] | undefined => {
   let filteredListings: Listing[] = listings;
 
   if (dates) {
-    filteredListings = filteredListings.filter((listing) =>
-      isListingAvailable(listing, dates),
-    );
+    filteredListings = filteredListings.filter((listing) => isListingAvailable(listing, dates));
   }
 
   if (typeof guests === 'number') {

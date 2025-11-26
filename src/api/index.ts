@@ -97,10 +97,9 @@ adapter.onGet('/api/me').reply(
       return [403, { message: 'Unauthorized' }];
     }
 
-    const refreshTokenPayload = await verifyToken(
-      accessTokenPayload.data as string,
-      { returnPayload: true },
-    );
+    const refreshTokenPayload = await verifyToken(accessTokenPayload.data as string, {
+      returnPayload: true,
+    });
 
     if (!refreshTokenPayload || typeof refreshTokenPayload === 'boolean') {
       return [403, { message: 'Unauthorized' }];
@@ -150,10 +149,7 @@ adapter.onGet('/api/refreshToken').reply(async () => {
     ? await verifyToken(refreshToken, { returnPayload: true })
     : false;
 
-  if (
-    env.USE_AUTH &&
-    (!refreshTokenPayload || typeof refreshTokenPayload === 'boolean')
-  ) {
+  if (env.USE_AUTH && (!refreshTokenPayload || typeof refreshTokenPayload === 'boolean')) {
     return [403, { message: 'Invalid refresh token' }];
   }
 

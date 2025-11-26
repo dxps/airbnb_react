@@ -23,10 +23,7 @@ export const getUserById = (id: number): User | undefined => {
   return users.find((user) => user.id === id);
 };
 
-export const getUser = (data: {
-  email: string;
-  password: string;
-}): User | undefined => {
+export const getUser = (data: { email: string; password: string }): User | undefined => {
   const { email, password } = data;
 
   const users = getDatabaseTable<User[]>('users');
@@ -35,9 +32,7 @@ export const getUser = (data: {
     return;
   }
 
-  const user = users.find(
-    (user) => user.email === email && user.password === password,
-  );
+  const user = users.find((user) => user.email === email && user.password === password);
 
   return user;
 };

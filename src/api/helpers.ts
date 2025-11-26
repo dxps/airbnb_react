@@ -19,18 +19,14 @@ type MockConfig = {
 
 type MockHandler = (
   config: MockConfig,
-) =>
-  | Promise<(number | { message: string })[]>
-  | (number | { message: string })[];
+) => Promise<(number | { message: string })[]> | (number | { message: string })[];
 
 // Waits for a given number of milliseconds.
 export const wait = (ms: number): Promise<void> =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
 // Helper function to easily retrieve a database table.
-export const getDatabaseTable = <T = unknown>(
-  entity: string,
-): T | undefined => {
+export const getDatabaseTable = <T = unknown>(entity: string): T | undefined => {
   const db = getItem<DbData>(env.DB);
   return db ? (db[entity] as T) : undefined;
 };
@@ -42,9 +38,7 @@ export const setDatabaseTable = (entity: string, data: unknown): void => {
 };
 
 // Removes the password from a user object.
-export const cleanUser = <T extends { password?: unknown }>(
-  user: T,
-): Omit<T, 'password'> => {
+export const cleanUser = <T extends { password?: unknown }>(user: T): Omit<T, 'password'> => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password, ...rest } = user;
   return rest;
@@ -54,8 +48,7 @@ export const cleanUser = <T extends { password?: unknown }>(
 export const withAuth =
   (...data: any) =>
   async (config: any): Promise<any> => {
-    const authHeader =
-      config.headers?.Authorization || config.headers?.authorization;
+    const authHeader = config.headers?.Authorization || config.headers?.authorization;
     const token = authHeader ? authHeader.split(' ')[1] : undefined;
 
     const verified = token ? await verifyToken(token) : false;
@@ -64,9 +57,7 @@ export const withAuth =
       return [401, { message: 'Unauthorized' }];
     }
 
-    return typeof data[0] === 'function'
-      ? (data[0] as MockHandler)(config)
-      : data;
+    return typeof data[0] === 'function' ? (data[0] as MockHandler)(config) : data;
   };
 
 // Verifies a JWT token.

@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
 import { getItem, setItem } from '../lib/utils/localStorage';
 
@@ -18,8 +12,7 @@ const ThemeProviderContext = createContext(initialState);
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 
-  if (context === undefined)
-    throw new Error('useTheme must be used within a ThemeProvider');
+  if (context === undefined) throw new Error('useTheme must be used within a ThemeProvider');
 
   return context;
 };
@@ -36,12 +29,8 @@ const ThemeProvider = ({
   storageKey = 'airbnb_react_theme',
   ...props
 }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState<string>(
-    () => getItem(storageKey) || defaultTheme,
-  );
-  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+  const [theme, setTheme] = useState<string>(() => getItem(storageKey) || defaultTheme);
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -63,11 +52,7 @@ const ThemeProvider = ({
     },
   };
 
-  return (
-    <ThemeProviderContext.Provider value={value}>
-      {children}
-    </ThemeProviderContext.Provider>
-  );
+  return <ThemeProviderContext.Provider value={value}>{children}</ThemeProviderContext.Provider>;
 };
 
 export default ThemeProvider;

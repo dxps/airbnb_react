@@ -5,9 +5,7 @@ const ListingList = ({ listings }: { listings: Listing[] }) => {
   return (
     <div className='flex flex-wrap justify-center gap-4'>
       {listings && listings.length > 0 ? (
-        listings.map((listing) => (
-          <ListingCard key={listing.id} listing={listing} />
-        ))
+        listings.map((listing) => <ListingCard key={listing.id} listing={listing} />)
       ) : (
         <p>No listings found.</p>
       )}

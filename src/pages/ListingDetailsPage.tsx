@@ -9,11 +9,7 @@ import { Separator } from '@/components/ui';
 const ListingDetailsPage = () => {
   const { listingId } = useParams();
 
-  const {
-    data: listing,
-    error,
-    isLoading,
-  } = useFetch<Listing>(`/api/listings/${listingId}`);
+  const { data: listing, error, isLoading } = useFetch<Listing>(`/api/listings/${listingId}`);
 
   return (
     <div className='container py-4'>
